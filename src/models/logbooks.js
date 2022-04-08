@@ -61,7 +61,7 @@ const logbookSchema = new mongoose.Schema({
     },
     isr:[isrSchema],
     iva:[ivaSchema],
-    users: [{ type: Schema.Types.ObjectId, ref: 'user' }]
+    user: { type: Schema.Types.ObjectId, ref: 'user' }
 
 })
 
