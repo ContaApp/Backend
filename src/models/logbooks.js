@@ -1,68 +1,62 @@
-const mongoose = require('mongoose')
- require('mongoose-double') (mongoose);
-
- const SchemaTypes = mongoose.Schema.Types;
-
+const mongoose = require('mongoose');
 
 const isrSchema= new mongoose.Schema({
-    ventas:{
-        type: SchemaTypes.Double,
+    incomes:{ //Ingresos
+        type: Number,
         required: true
     },
-    otros_ingresos:{
-        type: SchemaTypes.Double,
-        required: false
-    },
-    total_ingresos:{
-        type: SchemaTypes.Double,
+    expenses:{ //egresos
+        type: Number,
         required: true
     },
-    utilidad:{
-        type: SchemaTypes.Double,
+    profit:{ //utilidad
+        type: Number,
         required: true
     },
-    cuota_fija:{
-        type: SchemaTypes.Double,
+    fixRate:{ //cuota fija
+        type: Number,
         required: true
     },
-    isr_porcentual:{
-        type: SchemaTypes.Double,
+    itPercent:{ //isr porcentual
+        type: Number,
         required: true
     },
-    isr_retenido:{
-        type: SchemaTypes.Double,
+    whitholdedIncomeTax:{ //isr retenido
+        type: Number,
         required: true
     },
-    isr_a_pagar:{
-        type: SchemaTypes.Double 
+    itToPay:{ //isr a pagar
+        type: Number ,
+        required:true
     },
 
 })
 
 const ivaSchema= new mongoose.Schema({
-    iva_favor:{
-        type: SchemaTypes.Double,
+    vatAP:{ //IVA a cargo
+        type: Number,
         required: true
     },
-    iva_a_cargo:{
-        type: SchemaTypes.Double,
+    vatAR:{ //IVA a favor
+        type: Number,
         required: true
     },
-    total_iva:{
-        type: SchemaTypes.Double,
+    vat:{ //IVA Total
+        type: Number,
+        required: true
     }
 })
 
 const logbookSchema = new mongoose.Schema({
-    anio:{
+    year:{
         type: Number,
         required : true
     },
-    mes:{
+    month:{
         type: String,
         required : true
     },
-    fecha_elaboracion:{
+    creationDate:{
         type: Date
     },
     isr:[isrSchema],
