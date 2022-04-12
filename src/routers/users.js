@@ -58,26 +58,6 @@ router.get('/:id',  async (req, res) => {
 
 
 // POST /
-router.post('/',  async (req, res) => {
-  try {
-    const userToCreate = req.body
-    const userCreated = await users.create(userToCreate)
-    res.json({
-      success: true,
-      message: 'User Created 🙎 ',
-      data: {
-        user: userCreated
-      }
-    })
-  } catch (error) {
-    res.status(400)
-    res.json({
-      success: false,
-      message: 'Error at create Users 😣 ',
-      error: error.message
-    })
-  }
-}) 
 
 
 // DELETE /users/:id
@@ -143,7 +123,7 @@ router.post('/signup', async (req, res) => {
     res.status(400)
     res.json({
       success: false,
-      message: 'Could no register',
+      message: 'Could no register 😧 ',
       error: error.message
     })
   }

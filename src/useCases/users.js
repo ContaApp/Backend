@@ -36,7 +36,7 @@ async function signUp (dataUser) {
     // encriptar mi constraseña
     const passwordEncrypted = await bcrypt.hash(password)
 
-    return User.create({ email, password: passwordEncrypted})
+    return User.create({ ...dataUser, password: passwordEncrypted})
 }
 
 async function login (email, password) {

@@ -92,7 +92,7 @@ const userSchema = new mongoose.Schema({
         type: Date,
         default: Date.now()
     },
-    address:{addressSchema},
+    address:addressSchema,
     avatar: String,
     logbooks: [{ type: mongoose.Schema.Types.ObjectId, ref: 'logblook' }]
 
