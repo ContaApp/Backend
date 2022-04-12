@@ -92,12 +92,12 @@ const userSchema = new mongoose.Schema({
         type: Date,
         default: Date.now()
     },
-    address:[addressSchema],
-    avatar: string,
-    logbooks: [{ type: Schema.Types.ObjectId, ref: 'logblook' }]
+    address:{addressSchema},
+    avatar: String,
+    logbooks: [{ type: mongoose.Schema.Types.ObjectId, ref: 'logblook' }]
 
 })
 
-const model = new mongoose.Model('user', userSchema)
+const model = new mongoose.model('user', userSchema)
 
 module.exports = model;

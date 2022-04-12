@@ -61,10 +61,10 @@ const logbookSchema = new mongoose.Schema({
     },
     isr:[isrSchema],
     iva:[ivaSchema],
-    user: { type: Schema.Types.ObjectId, ref: 'user' }
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'user' }
 
 })
 
-const model = mongoose.model('logblook', logblookSchema)
+const model = mongoose.model('logbook', logbookSchema)
 
 module.exports= model;
