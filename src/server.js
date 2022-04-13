@@ -5,6 +5,7 @@
 const express = require('express')
 const usersRouter = require('./routers/users')
 const logbooksRouter = require('./routers/logbooks')
+const tablesISRRouter = require('./routers/tablesISR')
 
 
 const server = express()
@@ -17,6 +18,7 @@ server.use(express.json())
 // routers
 server.use('/users', usersRouter);
 server.use('/logbooks', logbooksRouter);
+server.use('/tables-isr', tablesISRRouter);
 
 
 
