@@ -18,7 +18,7 @@ server.use(express.json())
 // routers
 server.use('/users', usersRouter);
 server.use('/logbooks', logbooksRouter);
-server.use('/tablesISR', tablesISRRouter);
+server.use('/tables-isr', tablesISRRouter);
 
 
 
