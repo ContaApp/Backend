@@ -116,4 +116,50 @@ router.patch('/:id', async (req, res) => {
   }
 })
 
+
+/* router.post('/search-month-year', async (req, res) => {
+  try {
+    const {month, year} = req.body
+    const dataFound = await tablesISR.searchMonthYear(month, year)
+
+    res.json({
+      success: true,
+      message: ' 🎉 ',
+      data: {
+        dataFound
+      }
+    })
+  } catch (error) {
+    res.status(400)
+    res.json({
+      success: false,
+      message: 'Could not get data',
+      error: error.message
+    })
+  }
+})  */
+
+
+router.post('/search-range', async (req, res) => {
+  try {
+    const {month, year, money} = req.body
+    const dataFound = await tablesISR.searchRange(month, year, money)
+
+    res.json({
+      success: true,
+      message: ' 🎉 ',
+      data: {
+        dataFound
+      }
+    })
+  } catch (error) {
+    res.status(400)
+    res.json({
+      success: false,
+      message: 'Could not get data',
+      error: error.message
+    })
+  }
+}) 
+
 module.exports = router
