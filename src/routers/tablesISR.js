@@ -1,10 +1,10 @@
 const express = require('express')
 const tablesISR = require('../useCases/tablesISR')
-//const auth = require('../middlewares/auth')
+
 
 
 const router = express.Router()
-//router.use(auth)
+
 
 
 //GET 
