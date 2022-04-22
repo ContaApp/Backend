@@ -2,8 +2,8 @@ const bcrypt = require('bcrypt');
 
 const saltRounds = 10;
 
-function hash(){
-    return bcrypt.hash(planText, saltRounds)
+function hash(plainText){
+    return bcrypt.hash(plainText, saltRounds)
 }
 
 module.exports = {
