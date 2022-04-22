@@ -1,4 +1,5 @@
 const express = require('express')
+const auth = require('../middlewares/auth')
 
 const users = require('../useCases/users')
 
@@ -9,9 +10,9 @@ const router = express.Router()
 
 
 
+
 // GET /users/
-router.get('/',  (request, response, next) => {
-  console.log('Middleware en GET /users')
+router.get('/',  auth,  (request, response, next) => {
   next()
 }, async (req, res) => {
   try {
@@ -35,7 +36,9 @@ router.get('/',  (request, response, next) => {
 
 
 //GET :id
-router.get('/:id',  async (req, res) => {
+router.get('/:id',  auth, (req, res, next) => {
+  next()
+},async (req, res) => {
   try {
     const { id } = req.params
     const user = await users.getById(id)
@@ -62,7 +65,9 @@ router.get('/:id',  async (req, res) => {
 
 // DELETE /users/:id
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id',auth, (req, res, next) => {
+  next()
+},async (req, res) => {
   try {
     const { id } = req.params
     const userDeleted = await users.deleteById(id)
@@ -84,7 +89,9 @@ router.delete('/:id', async (req, res) => {
 
 
 // PATCH /users/:id
-router.patch('/:id', async (req, res) => {
+router.patch('/:id',auth, (req, res, next) => {
+  next()
+}, async (req, res) => {
   try {
     const { id } = req.params
     const userUpdated = await users.updateById(id, req.body)
@@ -133,13 +140,13 @@ router.post('/signup', async (req, res) => {
 
 router.post('/login', async (req, res) => {
   try {
-    const {password, email} = req.body
+    const { email, password} = req.body
     const token = await users.login(email, password)
     res.json({
       success: true,
       message: 'User logged In 🎉 ',
       data: {
-        user: token
+        token
       }
     })
   } catch (error) {

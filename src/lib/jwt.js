@@ -1,8 +1,8 @@
 const jwt = require('jsonwebtoken')
-const JWT_SECRET = 'SecretWord123'
+const {JWT_SECRET} = process.env
 
-function sign(){
-    return jwt.sign(payload,JWT_SECRET ,{expieresIn: '7d'})
+function sign(payload){
+    return jwt.sign(payload, JWT_SECRET ,{expiresIn: '7d'})
 }
 
 function verify(token){

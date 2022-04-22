@@ -74,8 +74,8 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         minLength:8,
-        maxLength: 20,
-        select: false //Para que cuando se haga un GET no envie la contraseña
+        //maxLength: 20,
+        select: true //Para que cuando se haga un GET no envie la contraseña
     },
     email:{
         type: String,

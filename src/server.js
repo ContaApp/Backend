@@ -2,7 +2,9 @@
 // configurar los middlewares
 // montar los routers
 
+const cors = require('cors')
 const express = require('express')
+
 const usersRouter = require('./routers/users')
 const logbooksRouter = require('./routers/logbooks')
 const tablesISRRouter = require('./routers/tablesISR')
@@ -13,7 +15,9 @@ const server = express()
 
 
 // middlewares
+server.use(cors())
 server.use(express.json())
+
 
 
 // routers

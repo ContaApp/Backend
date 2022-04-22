@@ -43,13 +43,13 @@ async function login (email, password) {
 
     const userFound = await User.findOne({email})
   //si no encuentra el email manda un error
-    if(!userFound) throw new Error('Invalid credentials')
+    if(!userFound) throw new Error('Invalid credentials email')
 
     //valida si la contraseña ingresada es igual a la contraseña de la BD
 
     const isValidPassword = await bcrypt.compare(password, userFound.password)
 
-    if(!isValidPassword) throw new Error('Invalid credentials')
+    if(!isValidPassword) throw new Error('Invalid credentials pass')
 
     // regresar el token
     return jwt.sign({id: userFound._id})
