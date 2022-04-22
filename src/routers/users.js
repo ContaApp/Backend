@@ -13,7 +13,6 @@ const router = express.Router()
 
 // GET /users/
 router.get('/',  auth,  (request, response, next) => {
-  console.log('Middleware en GET /users')
   next()
 }, async (req, res) => {
   try {
@@ -38,7 +37,6 @@ router.get('/',  auth,  (request, response, next) => {
 
 //GET :id
 router.get('/:id',  auth, (req, res, next) => {
-  console.log('Middleware en GET /users/:id')
   next()
 },async (req, res) => {
   try {
@@ -68,7 +66,6 @@ router.get('/:id',  auth, (req, res, next) => {
 // DELETE /users/:id
 
 router.delete('/:id',auth, (req, res, next) => {
-  console.log('Middleware en DELETE /users/:id')
   next()
 },async (req, res) => {
   try {
@@ -93,7 +90,6 @@ router.delete('/:id',auth, (req, res, next) => {
 
 // PATCH /users/:id
 router.patch('/:id',auth, (req, res, next) => {
-  console.log('Middleware en PATCH /users/:id')
   next()
 }, async (req, res) => {
   try {
