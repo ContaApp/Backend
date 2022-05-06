@@ -41,6 +41,14 @@ const ivaSchema= new mongoose.Schema({
         type: Number,
         required: true
     },
+    vatWH:{
+        type: Number,
+        required: true
+    },
+    vatFAVOR:{
+        type: Number,
+        required: true
+    },
     vat:{ //IVA Total
         type: Number,
         required: true
