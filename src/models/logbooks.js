@@ -29,6 +29,14 @@ const isrSchema= new mongoose.Schema({
         type: Number ,
         required:true
     },
+    accomulated:{
+        type: Number,
+        required: false
+    },
+    result:{
+        type: Number,
+        required: false
+    }
 
 })
 
